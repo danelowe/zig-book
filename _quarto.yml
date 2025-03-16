@@ -42,4 +42,8 @@ format:
     theme:
       light: cosmo
       dark: darkly
+  epub:
+    toc: true
+    cover-image: Cover/cover-artv3.png
+
 

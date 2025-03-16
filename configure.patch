@@ -1,0 +1,12 @@
+--- curl_orig/configure	2024-02-27 10:12:31.000000000 +1300
++++ curl/configure	2025-03-16 12:01:39.210268007 +1300
+@@ -78,7 +78,8 @@
+ 
+ # Extract curlopt symbols
+ echo '#include <curl/curl.h>' | ${CC} ${CPPFLAGS} ${PKG_CFLAGS} ${CFLAGS} -E -xc - \
+-  | grep "^[ \t]*CURLOPT_.*," | sed s/,// > tools/option_table.txt
++  | grep "^[ \t]*CURLOPT_.*," | sed s/,// | sed 's/__attribute__[(][(].*[)][)] =/=/' \
++  > tools/option_table.txt
+ 
+ # Success
+ exit 0
